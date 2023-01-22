@@ -1,0 +1,58 @@
+[config]
+context = "postfix"
+
+[[templates]]
+name = "at"
+description = "assert that ..."
+pattern = """
+${:importStatic(org.assertj.core.api.Assertions.assertThat)}\
+assertThat(${inner_expression}).${cursor}"""
+
+[[templates]]
+name = "ate, empty"
+description = "assert empty"
+pattern = """
+${:importStatic(org.assertj.core.api.Assertions.assertThat)}\
+assertThat(${inner_expression}).isEmpty();${cursor}"""
+
+[[templates]]
+name = "atne, notEmpty"
+description = "assert not empty"
+pattern = """
+${:importStatic(org.assertj.core.api.Assertions.assertThat)}\
+assertThat(${inner_expression}).isNotEmpty();${cursor}"""
+
+[[templates]]
+name = "ats, size"
+description = "assert size"
+pattern = """
+${:importStatic(org.assertj.core.api.Assertions.assertThat)}\
+assertThat(${inner_expression}).hasSize(${expSize})${cursor}"""
+
+[[templates]]
+name = "atc, contains"
+description = "assert contains"
+pattern = """
+${:importStatic(org.assertj.core.api.Assertions.assertThat)}\
+assertThat(${inner_expression}).contains(${expElements})${cursor}"""
+
+[[templates]]
+name = "atce, containsExactly"
+description = "assert contains exactly"
+pattern = """
+${:importStatic(org.assertj.core.api.Assertions.assertThat)}\
+assertThat(${inner_expression}).containsExactly(${expElements})${cursor}"""
+
+[[templates]]
+name = "tc, ThrowingCallable"
+description = "throwing callable"
+pattern = """
+${:import(org.assertj.core.api.ThrowableAssert.ThrowingCallable)}\
+ThrowingCallable when = () -> ${inner_expression};"""
+
+[[templates]]
+name = "ae, thrownBy"
+description = "assert exception"
+pattern = """
+${:importStatic(org.assertj.core.api.Assertions.assertThatThrownBy)}\
+assertThatThrownBy(${inner_expression})${cursor}"""

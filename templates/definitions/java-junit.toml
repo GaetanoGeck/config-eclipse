@@ -1,0 +1,46 @@
+[[templates]]
+name = "ut, testMethod"
+description = "new test method"
+context = "java-members"
+pattern = """\
+	${:import(org.junit.jupiter.api.Test)}\
+	@Test
+	void name() {
+		${cursor}
+	}"""
+
+[[templates]]
+name = "ptv, paramValues"
+description = "new parameterized test method with values"
+context = "java-members"
+pattern = """\
+	${:import(org.junit.jupiter.params.ParameterizedTest,org.junit.jupiter.params.provider.ValueSource)}\
+	@ParameterizedTest
+	@ValueSource(${valueType} = {${values}})
+	void ${testName}(${paramType} param) {
+		${cursor}
+	}"""
+
+[[templates]]
+name = "ptvs, paramStringValues"
+description = "new parameterized test method with string values"
+context = "java-members"
+pattern = """\
+	${:import(org.junit.jupiter.params.ParameterizedTest,org.junit.jupiter.params.provider.ValueSource)}\
+	@ParameterizedTest
+	@ValueSource(strings = {${values}})
+	void ${testName}(String param) {
+		${cursor}
+	}"""
+
+[[templates]]
+name = "ptvi, paramIntValues"
+description = "new parameterized test method with int values"
+context = "java-members"
+pattern = """\
+	${:import(org.junit.jupiter.params.ParameterizedTest,org.junit.jupiter.params.provider.ValueSource)}\
+	@ParameterizedTest
+	@ValueSource(ints = {${values}})
+	void ${testName}(int param) {
+		${cursor}
+	}"""

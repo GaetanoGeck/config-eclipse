@@ -1,0 +1,73 @@
+#!/usr/bin/env python3
+
+import sys
+
+import tomli
+
+config = {
+    "autoinsert": "true",
+    "context": "java-statements",
+}
+
+
+def main():
+    print(XML_HEADER)
+    for path in sys.argv[1:]:
+        printTemplatesFromDefinitions(path)
+    print(XML_FOOTER)
+
+
+XML_HEADER = """\
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>\
+<templates>\
+"""
+XML_FOOTER = """\
+</templates>\
+"""
+
+
+def printTemplatesFromDefinitions(tomlPath):
+    templates = readTemplatesFromFile(tomlPath)
+    printTemplates(templates)
+
+
+def readTemplatesFromFile(tomlPath):
+    with open(tomlPath, mode="rb") as fp:
+        definitions = tomli.load(fp)
+        config.update(definitions.get("config", {}))
+        return definitions.get("templates", [])
+
+
+def printTemplates(templates):
+    for t in templates:
+        printTemplate(t)
+
+
+def printTemplate(template):
+    def printOpeningTag(name):
+        context = template.get('context', config['context'])
+        tag = " ".join([
+            "\t<template",
+            f"autoinsert=\"{config['autoinsert']}\"",
+            f"context=\"{context}\"",
+            "deleted=\"false\"",
+            f"description=\"{template['description']}\"",
+            "enabled=\"true\"",
+            f"name=\"{name}\">"])
+        print(tag, end="")
+
+    def printPattern():
+        print(template["pattern"], end="")
+
+    def printClosingTag():
+        print("</template>")
+
+    names = [n.strip() for n in template["name"].split(",")]
+    for name in names:
+        printOpeningTag(name)
+        printPattern()
+        printClosingTag()
+
+
+if __name__ == "__main__":
+    main()

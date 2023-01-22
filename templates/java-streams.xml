@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><templates>
+	<template autoinsert="true" context="java-statements" deleted="false" description="collect to list" enabled="true" name="cl">${:import(java.util.stream.Collectors)}.collect(Collectors.toList());</template>
+	<template autoinsert="true" context="java-statements" deleted="false" description="collect to list" enabled="true" name="toList">${:import(java.util.stream.Collectors)}.collect(Collectors.toList());</template>
+	<template autoinsert="true" context="java-statements" deleted="false" description="collect to set" enabled="true" name="cs">${:import(java.util.stream.Collectors)}.collect(Collectors.toSet());</template>
+	<template autoinsert="true" context="java-statements" deleted="false" description="collect to set" enabled="true" name="toSet">${:import(java.util.stream.Collectors)}.collect(Collectors.toSet());</template>
+	<template autoinsert="true" context="java-statements" deleted="false" description="collect joining" enabled="true" name="cj">${:import(java.util.stream.Collectors)}.collect(Collectors.joining(${spec}));</template>
+	<template autoinsert="true" context="java-statements" deleted="false" description="collect joining" enabled="true" name="join">${:import(java.util.stream.Collectors)}.collect(Collectors.joining(${spec}));</template>
+	<template autoinsert="true" context="java-statements" deleted="false" description="collect to map" enabled="true" name="cm">${:import(java.util.stream.Collectors)}.collect(Collectors.toMap(${keyMapper}, ${valueMapper}));</template>
+	<template autoinsert="true" context="java-statements" deleted="false" description="collect to map" enabled="true" name="toMap">${:import(java.util.stream.Collectors)}.collect(Collectors.toMap(${keyMapper}, ${valueMapper}));</template>
+</templates>

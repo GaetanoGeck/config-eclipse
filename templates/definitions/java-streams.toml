@@ -1,0 +1,28 @@
+[[templates]]
+name = "cl, toList"
+description = "collect to list"
+pattern = """
+${:import(java.util.stream.Collectors)}\
+.collect(Collectors.toList());"""
+
+[[templates]]
+name = "cs, toSet"
+description = "collect to set"
+pattern = """
+${:import(java.util.stream.Collectors)}\
+.collect(Collectors.toSet());"""
+
+[[templates]]
+name = "cj, join"
+description = "collect joining"
+pattern = """
+${:import(java.util.stream.Collectors)}\
+.collect(Collectors.joining(${spec}));"""
+
+[[templates]]
+name = "cm, toMap"
+description = "collect to map"
+pattern = """
+${:import(java.util.stream.Collectors)}\
+.collect(Collectors.toMap(${keyMapper}, ${valueMapper}));"""
+

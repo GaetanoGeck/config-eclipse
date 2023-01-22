@@ -1,0 +1,22 @@
+[[templates]]
+name = "il, initList"
+description = "init (array) list"
+pattern = """
+${:import(java.util.ArrayList)}\
+new ArrayList<>(${params});"""
+
+[[templates]]
+name = "is, initSet"
+description = "init (hash) set"
+pattern = """
+${:import(java.util.HashSet)}\
+new HashSet<>(${params});"""
+
+
+[[templates]]
+name = "im, initMap"
+description = "init (hash) map"
+pattern = """
+${:import(java.util.HashMap)}\
+new HashMap<>(${params});"""
+

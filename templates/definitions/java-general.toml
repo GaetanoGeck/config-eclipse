@@ -1,0 +1,7 @@
+[[templates]]
+name = "dto, createDto"
+description = "create and return DTO"
+pattern = """
+${return_type} ${name} = new ${return_type}();
+${cursor}
+return ${name};"""

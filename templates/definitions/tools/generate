@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
+
+generate() {
+	generateSeparateXmls
+	generateCombinedXml
+}
+
+
+generateCombinedXml() {
+	COMBINED_JAVA=java.xml
+	echo "Generating $COMBINED_JAVA"
+	tomlToXml java-*.toml >../$COMBINED_JAVA
+}
+
+generateSeparateXmls() {
+	for tomlFile in *.toml; do
+		xmlFile=${tomlFile%.toml}.xml
+		echo "Generating $xmlFile"
+		tomlToXml $tomlFile >../$xmlFile
+	done
+}
+
+
+tomlToXml() {
+	$SCRIPT_DIR/tomlToXml $@
+}
+
+
+generate
