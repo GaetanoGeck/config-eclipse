@@ -1,46 +1,65 @@
-[[templates]]
-name = "ut, testMethod"
-description = "new test method"
-context = "java-members"
-pattern = """\
-	${:import(org.junit.jupiter.api.Test)}\
-	@Test
-	void name() {
-		${cursor}
-	}"""
+[config]
+context = "java"
 
 [[templates]]
-name = "ptv, paramValues"
-description = "new parameterized test method with values"
-context = "java-members"
-pattern = """\
-	${:import(org.junit.jupiter.params.ParameterizedTest,org.junit.jupiter.params.provider.ValueSource)}\
-	@ParameterizedTest
-	@ValueSource(${valueType} = {${values}})
-	void ${testName}(${paramType} param) {
-		${cursor}
-	}"""
+name = "nested"
+description = "nested test"
+pattern = """
+${:import(org.junit.jupiter.api.Nested)}\
+@Nested
+class ${NestedTestName} {
+
+	${cursor}
+
+}"""
 
 [[templates]]
-name = "ptvs, paramStringValues"
-description = "new parameterized test method with string values"
-context = "java-members"
-pattern = """\
-	${:import(org.junit.jupiter.params.ParameterizedTest,org.junit.jupiter.params.provider.ValueSource)}\
-	@ParameterizedTest
-	@ValueSource(strings = {${values}})
-	void ${testName}(String param) {
-		${cursor}
-	}"""
+name = "test"
+description = "test"
+pattern = """
+${:import(org.junit.jupiter.api.Test)}\
+@Test${cursor}"""
 
 [[templates]]
-name = "ptvi, paramIntValues"
-description = "new parameterized test method with int values"
-context = "java-members"
-pattern = """\
-	${:import(org.junit.jupiter.params.ParameterizedTest,org.junit.jupiter.params.provider.ValueSource)}\
-	@ParameterizedTest
-	@ValueSource(ints = {${values}})
-	void ${testName}(int param) {
-		${cursor}
-	}"""
+name = "tm"
+description = "test method"
+pattern = """
+${:import(org.junit.jupiter.api.Test)}\
+@Test
+void ${TestName}() {
+	${cursor}
+}"""
+
+[[templates]]
+name = "pt"
+description = "parameterized test"
+pattern = """
+${:import(org.junit.jupiter.params.ParameterizedTest)}\
+@ParameterizedTest${cursor}"""
+
+[[templates]]
+name = "ptm"
+description = "parameterized test method"
+pattern = """
+${:import(org.junit.jupiter.params.ParameterizedTest)}\
+@ParameterizedTest
+${Parameters}
+void ${TestName}(${Arguments}) {
+	${cursor}
+}"""
+
+[[templates]]
+name = "pcsv, csvSource"
+description = "CSV-source for a parameterized test"
+pattern = """
+${:import(org.junit.jupiter.params.provider.CsvSource)}\
+@CsvSource({ //
+	${value}, //${cursor}
+})"""
+
+[[templates]]
+name = "pval, valueSource"
+description = "value-source for a parameterized test"
+pattern = """
+${:import(org.junit.jupiter.params.provider.ValueSource)}\
+@ValueSource(${valueType} = {${values}})"""

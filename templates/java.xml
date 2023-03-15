@@ -1,75 +1,107 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><templates>
-	<template autoinsert="true" context="postfix" deleted="false" description="assert that ..." enabled="true" name="at">${:importStatic(org.assertj.core.api.Assertions.assertThat)}assertThat(${inner_expression}).${cursor}</template>
-	<template autoinsert="true" context="postfix" deleted="false" description="assert empty" enabled="true" name="ate">${:importStatic(org.assertj.core.api.Assertions.assertThat)}assertThat(${inner_expression}).isEmpty();${cursor}</template>
-	<template autoinsert="true" context="postfix" deleted="false" description="assert empty" enabled="true" name="empty">${:importStatic(org.assertj.core.api.Assertions.assertThat)}assertThat(${inner_expression}).isEmpty();${cursor}</template>
-	<template autoinsert="true" context="postfix" deleted="false" description="assert not empty" enabled="true" name="atne">${:importStatic(org.assertj.core.api.Assertions.assertThat)}assertThat(${inner_expression}).isNotEmpty();${cursor}</template>
-	<template autoinsert="true" context="postfix" deleted="false" description="assert not empty" enabled="true" name="notEmpty">${:importStatic(org.assertj.core.api.Assertions.assertThat)}assertThat(${inner_expression}).isNotEmpty();${cursor}</template>
-	<template autoinsert="true" context="postfix" deleted="false" description="assert size" enabled="true" name="ats">${:importStatic(org.assertj.core.api.Assertions.assertThat)}assertThat(${inner_expression}).hasSize(${expSize})${cursor}</template>
-	<template autoinsert="true" context="postfix" deleted="false" description="assert size" enabled="true" name="size">${:importStatic(org.assertj.core.api.Assertions.assertThat)}assertThat(${inner_expression}).hasSize(${expSize})${cursor}</template>
-	<template autoinsert="true" context="postfix" deleted="false" description="assert contains" enabled="true" name="atc">${:importStatic(org.assertj.core.api.Assertions.assertThat)}assertThat(${inner_expression}).contains(${expElements})${cursor}</template>
-	<template autoinsert="true" context="postfix" deleted="false" description="assert contains" enabled="true" name="contains">${:importStatic(org.assertj.core.api.Assertions.assertThat)}assertThat(${inner_expression}).contains(${expElements})${cursor}</template>
-	<template autoinsert="true" context="postfix" deleted="false" description="assert contains exactly" enabled="true" name="atce">${:importStatic(org.assertj.core.api.Assertions.assertThat)}assertThat(${inner_expression}).containsExactly(${expElements})${cursor}</template>
-	<template autoinsert="true" context="postfix" deleted="false" description="assert contains exactly" enabled="true" name="containsExactly">${:importStatic(org.assertj.core.api.Assertions.assertThat)}assertThat(${inner_expression}).containsExactly(${expElements})${cursor}</template>
-	<template autoinsert="true" context="postfix" deleted="false" description="throwing callable" enabled="true" name="tc">${:import(org.assertj.core.api.ThrowableAssert.ThrowingCallable)}ThrowingCallable when = () -> ${inner_expression};</template>
-	<template autoinsert="true" context="postfix" deleted="false" description="throwing callable" enabled="true" name="ThrowingCallable">${:import(org.assertj.core.api.ThrowableAssert.ThrowingCallable)}ThrowingCallable when = () -> ${inner_expression};</template>
-	<template autoinsert="true" context="postfix" deleted="false" description="assert exception" enabled="true" name="ae">${:importStatic(org.assertj.core.api.Assertions.assertThatThrownBy)}assertThatThrownBy(${inner_expression})${cursor}</template>
-	<template autoinsert="true" context="postfix" deleted="false" description="assert exception" enabled="true" name="thrownBy">${:importStatic(org.assertj.core.api.Assertions.assertThatThrownBy)}assertThatThrownBy(${inner_expression})${cursor}</template>
-	<template autoinsert="true" context="postfix" deleted="false" description="init (array) list" enabled="true" name="il">${:import(java.util.ArrayList)}new ArrayList<>(${params});</template>
-	<template autoinsert="true" context="postfix" deleted="false" description="init (array) list" enabled="true" name="initList">${:import(java.util.ArrayList)}new ArrayList<>(${params});</template>
-	<template autoinsert="true" context="postfix" deleted="false" description="init (hash) set" enabled="true" name="is">${:import(java.util.HashSet)}new HashSet<>(${params});</template>
-	<template autoinsert="true" context="postfix" deleted="false" description="init (hash) set" enabled="true" name="initSet">${:import(java.util.HashSet)}new HashSet<>(${params});</template>
-	<template autoinsert="true" context="postfix" deleted="false" description="init (hash) map" enabled="true" name="im">${:import(java.util.HashMap)}new HashMap<>(${params});</template>
-	<template autoinsert="true" context="postfix" deleted="false" description="init (hash) map" enabled="true" name="initMap">${:import(java.util.HashMap)}new HashMap<>(${params});</template>
-	<template autoinsert="true" context="postfix" deleted="false" description="create and return DTO" enabled="true" name="dto">${return_type} ${name} = new ${return_type}();
+	<template autoinsert="true" context="postfix" deleted="false" description="assert that ..." enabled="true" name="at">${:importStatic(org.assertj.core.api.Assertions.assertThat)}assertThat(${inner_expression}).</template>
+	<template autoinsert="true" context="postfix" deleted="false" description="assert that ..." enabled="true" name="assertThat">${:importStatic(org.assertj.core.api.Assertions.assertThat)}assertThat(${inner_expression}).</template>
+	<template autoinsert="true" context="java-statements" deleted="false" description="assert that ..." enabled="true" name="xat">${:importStatic(org.assertj.core.api.Assertions.assertThat)}assertThat(${Actual}).</template>
+	<template autoinsert="true" context="postfix" deleted="false" description="assert null" enabled="true" name="isnu">${:importStatic(org.assertj.core.api.Assertions.assertThat)}assertThat(${inner_expression}).isNull();</template>
+	<template autoinsert="true" context="postfix" deleted="false" description="assert null" enabled="true" name="isNull">${:importStatic(org.assertj.core.api.Assertions.assertThat)}assertThat(${inner_expression}).isNull();</template>
+	<template autoinsert="true" context="postfix" deleted="false" description="assert not null" enabled="true" name="isnnu">${:importStatic(org.assertj.core.api.Assertions.assertThat)}assertThat(${inner_expression}).isNotNull();</template>
+	<template autoinsert="true" context="postfix" deleted="false" description="assert not null" enabled="true" name="isNotNull">${:importStatic(org.assertj.core.api.Assertions.assertThat)}assertThat(${inner_expression}).isNotNull();</template>
+	<template autoinsert="true" context="postfix" deleted="false" description="assert empty" enabled="true" name="ise">${:importStatic(org.assertj.core.api.Assertions.assertThat)}assertThat(${inner_expression}).isEmpty();</template>
+	<template autoinsert="true" context="postfix" deleted="false" description="assert empty" enabled="true" name="isEmpty">${:importStatic(org.assertj.core.api.Assertions.assertThat)}assertThat(${inner_expression}).isEmpty();</template>
+	<template autoinsert="true" context="postfix" deleted="false" description="assert not empty" enabled="true" name="isne">${:importStatic(org.assertj.core.api.Assertions.assertThat)}assertThat(${inner_expression}).isNotEmpty();</template>
+	<template autoinsert="true" context="postfix" deleted="false" description="assert not empty" enabled="true" name="isNotEmpty">${:importStatic(org.assertj.core.api.Assertions.assertThat)}assertThat(${inner_expression}).isNotEmpty();</template>
+	<template autoinsert="true" context="postfix" deleted="false" description="assert equal" enabled="true" name="iseq">${:importStatic(org.assertj.core.api.Assertions.assertThat)}assertThat(${inner_expression}).isEqualTo(${expValue});</template>
+	<template autoinsert="true" context="postfix" deleted="false" description="assert equal" enabled="true" name="isEqual">${:importStatic(org.assertj.core.api.Assertions.assertThat)}assertThat(${inner_expression}).isEqualTo(${expValue});</template>
+	<template autoinsert="true" context="postfix" deleted="false" description="assert not equal" enabled="true" name="isneq">${:importStatic(org.assertj.core.api.Assertions.assertThat)}assertThat(${inner_expression}).isNotEqualTo(${expValue});</template>
+	<template autoinsert="true" context="postfix" deleted="false" description="assert not equal" enabled="true" name="isNotEqual">${:importStatic(org.assertj.core.api.Assertions.assertThat)}assertThat(${inner_expression}).isNotEqualTo(${expValue});</template>
+	<template autoinsert="true" context="postfix" deleted="false" description="assert size" enabled="true" name="hasSize">${:importStatic(org.assertj.core.api.Assertions.assertThat)}assertThat(${inner_expression}).hasSize(${expSize})</template>
+	<template autoinsert="true" context="postfix" deleted="false" description="assert contains" enabled="true" name="contains">${:importStatic(org.assertj.core.api.Assertions.assertThat)}assertThat(${inner_expression}).contains(${expElements})</template>
+	<template autoinsert="true" context="postfix" deleted="false" description="assert contains exactly" enabled="true" name="containsExactly">${:importStatic(org.assertj.core.api.Assertions.assertThat)}assertThat(${inner_expression}).containsExactly(${expElements})</template>
+	<template autoinsert="true" context="postfix" deleted="false" description="throwing callable" enabled="true" name="tc">${:import(org.assertj.core.api.ThrowableAssert.ThrowingCallable)}ThrowingCallable when = () -&gt; ${inner_expression};</template>
+	<template autoinsert="true" context="java-statements" deleted="false" description="throwing callable" enabled="true" name="xtc">${:import(org.assertj.core.api.ThrowableAssert.ThrowingCallable)}ThrowingCallable when = () -&gt; </template>
+	<template autoinsert="true" context="java-statements" deleted="false" description="throwing callable" enabled="true" name="ThrowingCallable">${:import(org.assertj.core.api.ThrowableAssert.ThrowingCallable)}ThrowingCallable when = () -&gt; </template>
+	<template autoinsert="true" context="java-statements" deleted="false" description="assert exception" enabled="true" name="assertThrows">${:importStatic(org.assertj.core.api.Assertions.assertThatThrownBy)}assertThatThrownBy(when).isInstanceOf(${expException}.class)</template>
+	<template autoinsert="true" context="java" deleted="false" description="init (array) list" enabled="true" name="nal">${:import(java.util.ArrayList)}new ArrayList&lt;&gt;();</template>
+	<template autoinsert="true" context="java" deleted="false" description="init (array) list" enabled="true" name="newArrayList">${:import(java.util.ArrayList)}new ArrayList&lt;&gt;();</template>
+	<template autoinsert="true" context="java" deleted="false" description="init (hash) set" enabled="true" name="nhs">${:import(java.util.HashSet)}new HashSet&lt;&gt;();</template>
+	<template autoinsert="true" context="java" deleted="false" description="init (hash) set" enabled="true" name="newHashSet">${:import(java.util.HashSet)}new HashSet&lt;&gt;();</template>
+	<template autoinsert="true" context="java" deleted="false" description="init (hash) map" enabled="true" name="nhm">${:import(java.util.HashMap)}new HashMap&lt;&gt;();</template>
+	<template autoinsert="true" context="java" deleted="false" description="init (hash) map" enabled="true" name="newHashMap">${:import(java.util.HashMap)}new HashMap&lt;&gt;();</template>
+	<template autoinsert="true" context="java" deleted="false" description="create a list" enabled="true" name="al">${:importStatic(java.util.Arrays.asList)}asList(${values});</template>
+	<template autoinsert="true" context="java" deleted="false" description="create a list" enabled="true" name="list">${:importStatic(java.util.Arrays.asList)}asList(${values});</template>
+	<template autoinsert="true" context="java" deleted="false" description="create a list" enabled="true" name="asList">${:importStatic(java.util.Arrays.asList)}asList(${values});</template>
+	<template autoinsert="true" context="postfix" deleted="false" description="introduce variable" enabled="true" name="var">${field:newType(inner_expression)} ${var:newName(inner_expression)} = ${inner_expression};</template>
+	<template autoinsert="true" context="postfix" deleted="false" description="introduce field" enabled="true" name="field">${field:newField(i)} = ${i:inner_expression};</template>
+	<template autoinsert="true" context="postfix" deleted="false" description="introduce private constant" enabled="true" name="ci">${n:newField(i, false, true, true, true)}${i:inner_expression(novalue)}</template>
+	<template autoinsert="true" context="postfix" deleted="false" description="introduce private constant" enabled="true" name="constpriv">${n:newField(i, false, true, true, true)}${i:inner_expression(novalue)}</template>
+	<template autoinsert="true" context="postfix" deleted="false" description="introduce private constant" enabled="true" name="cu">${n:newField(i, true, true, true, true)}${i:inner_expression(novalue)}</template>
+	<template autoinsert="true" context="postfix" deleted="false" description="introduce private constant" enabled="true" name="constpub">${n:newField(i, true, true, true, true)}${i:inner_expression(novalue)}</template>
+	<template autoinsert="true" context="java" deleted="false" description="create and return DTO" enabled="true" name="dto">${return_type} ${name} = new ${return_type}();
 ${cursor}
 return ${name};</template>
-	<template autoinsert="true" context="postfix" deleted="false" description="create and return DTO" enabled="true" name="createDto">${return_type} ${name} = new ${return_type}();
+	<template autoinsert="true" context="java" deleted="false" description="create and return DTO" enabled="true" name="createDto">${return_type} ${name} = new ${return_type}();
 ${cursor}
 return ${name};</template>
-	<template autoinsert="true" context="java-members" deleted="false" description="new test method" enabled="true" name="ut">${:import(org.junit.jupiter.api.Test)}@Test
-	void name() {
-		${cursor}
-	}</template>
-	<template autoinsert="true" context="java-members" deleted="false" description="new test method" enabled="true" name="testMethod">${:import(org.junit.jupiter.api.Test)}@Test
-	void name() {
-		${cursor}
-	}</template>
-	<template autoinsert="true" context="java-members" deleted="false" description="new parameterized test method with values" enabled="true" name="ptv">${:import(org.junit.jupiter.params.ParameterizedTest,org.junit.jupiter.params.provider.ValueSource)}@ParameterizedTest
-	@ValueSource(${valueType} = {${values}})
-	void ${testName}(${paramType} param) {
-		${cursor}
-	}</template>
-	<template autoinsert="true" context="java-members" deleted="false" description="new parameterized test method with values" enabled="true" name="paramValues">${:import(org.junit.jupiter.params.ParameterizedTest,org.junit.jupiter.params.provider.ValueSource)}@ParameterizedTest
-	@ValueSource(${valueType} = {${values}})
-	void ${testName}(${paramType} param) {
-		${cursor}
-	}</template>
-	<template autoinsert="true" context="java-members" deleted="false" description="new parameterized test method with string values" enabled="true" name="ptvs">${:import(org.junit.jupiter.params.ParameterizedTest,org.junit.jupiter.params.provider.ValueSource)}@ParameterizedTest
-	@ValueSource(strings = {${values}})
-	void ${testName}(String param) {
-		${cursor}
-	}</template>
-	<template autoinsert="true" context="java-members" deleted="false" description="new parameterized test method with string values" enabled="true" name="paramStringValues">${:import(org.junit.jupiter.params.ParameterizedTest,org.junit.jupiter.params.provider.ValueSource)}@ParameterizedTest
-	@ValueSource(strings = {${values}})
-	void ${testName}(String param) {
-		${cursor}
-	}</template>
-	<template autoinsert="true" context="java-members" deleted="false" description="new parameterized test method with int values" enabled="true" name="ptvi">${:import(org.junit.jupiter.params.ParameterizedTest,org.junit.jupiter.params.provider.ValueSource)}@ParameterizedTest
-	@ValueSource(ints = {${values}})
-	void ${testName}(int param) {
-		${cursor}
-	}</template>
-	<template autoinsert="true" context="java-members" deleted="false" description="new parameterized test method with int values" enabled="true" name="paramIntValues">${:import(org.junit.jupiter.params.ParameterizedTest,org.junit.jupiter.params.provider.ValueSource)}@ParameterizedTest
-	@ValueSource(ints = {${values}})
-	void ${testName}(int param) {
-		${cursor}
-	}</template>
-	<template autoinsert="true" context="postfix" deleted="false" description="collect to list" enabled="true" name="cl">${:import(java.util.stream.Collectors)}.collect(Collectors.toList());</template>
-	<template autoinsert="true" context="postfix" deleted="false" description="collect to list" enabled="true" name="toList">${:import(java.util.stream.Collectors)}.collect(Collectors.toList());</template>
-	<template autoinsert="true" context="postfix" deleted="false" description="collect to set" enabled="true" name="cs">${:import(java.util.stream.Collectors)}.collect(Collectors.toSet());</template>
-	<template autoinsert="true" context="postfix" deleted="false" description="collect to set" enabled="true" name="toSet">${:import(java.util.stream.Collectors)}.collect(Collectors.toSet());</template>
-	<template autoinsert="true" context="postfix" deleted="false" description="collect joining" enabled="true" name="cj">${:import(java.util.stream.Collectors)}.collect(Collectors.joining(${spec}));</template>
-	<template autoinsert="true" context="postfix" deleted="false" description="collect joining" enabled="true" name="join">${:import(java.util.stream.Collectors)}.collect(Collectors.joining(${spec}));</template>
-	<template autoinsert="true" context="postfix" deleted="false" description="collect to map" enabled="true" name="cm">${:import(java.util.stream.Collectors)}.collect(Collectors.toMap(${keyMapper}, ${valueMapper}));</template>
-	<template autoinsert="true" context="postfix" deleted="false" description="collect to map" enabled="true" name="toMap">${:import(java.util.stream.Collectors)}.collect(Collectors.toMap(${keyMapper}, ${valueMapper}));</template>
+	<template autoinsert="true" context="postfix" deleted="false" description="return expression" enabled="true" name="ret">return ${inner_expression};</template>
+	<template autoinsert="true" context="java" deleted="false" description="format a string" enabled="true" name="fmt">String ${name} = String.format(${text}, ${obj});</template>
+	<template autoinsert="true" context="java" deleted="false" description="format a string" enabled="true" name="format">String ${name} = String.format(${text}, ${obj});</template>
+	<template autoinsert="true" context="java" deleted="false" description="public method" enabled="true" name="mu">public ${void} ${MethodName}(${}) {
+	${cursor}
+}
+</template>
+	<template autoinsert="true" context="java" deleted="false" description="package method" enabled="true" name="ma">${void} ${MethodName}(${}) {
+	${cursor}
+}
+</template>
+	<template autoinsert="true" context="java" deleted="false" description="protected method" enabled="true" name="mo">protected ${void} ${MethodName}(${}) {
+	${cursor}
+}
+</template>
+	<template autoinsert="true" context="java" deleted="false" description="private method" enabled="true" name="mi">private ${void} ${MethodName}(${}) {
+	${cursor}
+}
+</template>
+	<template autoinsert="true" context="java" deleted="false" description="private static final field" enabled="true" name="sfi">private static final ${FieldType} ${FieldName}${cursor};
+</template>
+	<template autoinsert="true" context="java" deleted="false" description="public static final field" enabled="true" name="sfu">public static final ${FieldType} ${FieldName}${cursor};
+</template>
+	<template autoinsert="true" context="java" deleted="false" description="Serializable" enabled="true" name="iser">${:import(java.io.Serializable)}Serializable
+</template>
+	<template autoinsert="true" context="java" deleted="false" description="Serializable ID" enabled="true" name="idser">private static final long serialVersionUID = 1L;</template>
+	<template autoinsert="true" context="java-statements" deleted="false" description="clone via SerializationUtils" enabled="true" name="clone">${:import(org.apache.commons.lang3.SerializationUtils)}SerializationUtils.clone(${obj:var});</template>
+	<template autoinsert="true" context="java-statements" deleted="false" description="serialize via SerializationUtils" enabled="true" name="serialize">${:import(org.apache.commons.lang3.SerializationUtils)}SerializationUtils.serialize(${obj:var});</template>
+	<template autoinsert="true" context="java-statements" deleted="false" description="deserialize via SerializationUtils" enabled="true" name="deserialize">${:import(org.apache.commons.lang3.SerializationUtils)}SerializationUtils.deserialize(${obj:var});</template>
+	<template autoinsert="true" context="java" deleted="false" description="nested test" enabled="true" name="nested">${:import(org.junit.jupiter.api.Nested)}@Nested
+class ${NestedTestName} {
+
+	${cursor}
+
+}</template>
+	<template autoinsert="true" context="java" deleted="false" description="test" enabled="true" name="test">${:import(org.junit.jupiter.api.Test)}@Test${cursor}</template>
+	<template autoinsert="true" context="java" deleted="false" description="test method" enabled="true" name="tm">${:import(org.junit.jupiter.api.Test)}@Test
+void ${TestName}() {
+	${cursor}
+}</template>
+	<template autoinsert="true" context="java" deleted="false" description="parameterized test" enabled="true" name="pt">${:import(org.junit.jupiter.params.ParameterizedTest)}@ParameterizedTest${cursor}</template>
+	<template autoinsert="true" context="java" deleted="false" description="parameterized test method" enabled="true" name="ptm">${:import(org.junit.jupiter.params.ParameterizedTest)}@ParameterizedTest
+${Parameters}
+void ${TestName}(${Arguments}) {
+	${cursor}
+}</template>
+	<template autoinsert="true" context="java" deleted="false" description="CSV-source for a parameterized test" enabled="true" name="pcsv">${:import(org.junit.jupiter.params.provider.CsvSource)}@CsvSource({ //
+	${value}, //${cursor}
+})</template>
+	<template autoinsert="true" context="java" deleted="false" description="CSV-source for a parameterized test" enabled="true" name="csvSource">${:import(org.junit.jupiter.params.provider.CsvSource)}@CsvSource({ //
+	${value}, //${cursor}
+})</template>
+	<template autoinsert="true" context="java" deleted="false" description="value-source for a parameterized test" enabled="true" name="pval">${:import(org.junit.jupiter.params.provider.ValueSource)}@ValueSource(${valueType} = {${values}})</template>
+	<template autoinsert="true" context="java" deleted="false" description="value-source for a parameterized test" enabled="true" name="valueSource">${:import(org.junit.jupiter.params.provider.ValueSource)}@ValueSource(${valueType} = {${values}})</template>
+	<template autoinsert="true" context="java" deleted="false" description="collect to list" enabled="true" name="cl">${:import(java.util.stream.Collectors)}.collect(Collectors.toList());</template>
+	<template autoinsert="true" context="java" deleted="false" description="collect to list" enabled="true" name="toList">${:import(java.util.stream.Collectors)}.collect(Collectors.toList());</template>
+	<template autoinsert="true" context="java" deleted="false" description="collect to set" enabled="true" name="cs">${:import(java.util.stream.Collectors)}.collect(Collectors.toSet());</template>
+	<template autoinsert="true" context="java" deleted="false" description="collect to set" enabled="true" name="toSet">${:import(java.util.stream.Collectors)}.collect(Collectors.toSet());</template>
+	<template autoinsert="true" context="java" deleted="false" description="collect joining" enabled="true" name="cj">${:import(java.util.stream.Collectors)}.collect(Collectors.joining(${spec}));</template>
+	<template autoinsert="true" context="java" deleted="false" description="collect joining" enabled="true" name="join">${:import(java.util.stream.Collectors)}.collect(Collectors.joining(${spec}));</template>
+	<template autoinsert="true" context="java" deleted="false" description="collect to map" enabled="true" name="cm">${:import(java.util.stream.Collectors)}.collect(Collectors.toMap(${keyMapper}, ${valueMapper}));</template>
+	<template autoinsert="true" context="java" deleted="false" description="collect to map" enabled="true" name="toMap">${:import(java.util.stream.Collectors)}.collect(Collectors.toMap(${keyMapper}, ${valueMapper}));</template>
 </templates>

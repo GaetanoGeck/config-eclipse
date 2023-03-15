@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><templates>
-	<template autoinsert="true" context="java-statements" deleted="false" description="init (array) list" enabled="true" name="il">${:import(java.util.ArrayList)}new ArrayList<>(${params});</template>
-	<template autoinsert="true" context="java-statements" deleted="false" description="init (array) list" enabled="true" name="initList">${:import(java.util.ArrayList)}new ArrayList<>(${params});</template>
-	<template autoinsert="true" context="java-statements" deleted="false" description="init (hash) set" enabled="true" name="is">${:import(java.util.HashSet)}new HashSet<>(${params});</template>
-	<template autoinsert="true" context="java-statements" deleted="false" description="init (hash) set" enabled="true" name="initSet">${:import(java.util.HashSet)}new HashSet<>(${params});</template>
-	<template autoinsert="true" context="java-statements" deleted="false" description="init (hash) map" enabled="true" name="im">${:import(java.util.HashMap)}new HashMap<>(${params});</template>
-	<template autoinsert="true" context="java-statements" deleted="false" description="init (hash) map" enabled="true" name="initMap">${:import(java.util.HashMap)}new HashMap<>(${params});</template>
+	<template autoinsert="true" context="java" deleted="false" description="init (array) list" enabled="true" name="nal">${:import(java.util.ArrayList)}new ArrayList&lt;&gt;();</template>
+	<template autoinsert="true" context="java" deleted="false" description="init (array) list" enabled="true" name="newArrayList">${:import(java.util.ArrayList)}new ArrayList&lt;&gt;();</template>
+	<template autoinsert="true" context="java" deleted="false" description="init (hash) set" enabled="true" name="nhs">${:import(java.util.HashSet)}new HashSet&lt;&gt;();</template>
+	<template autoinsert="true" context="java" deleted="false" description="init (hash) set" enabled="true" name="newHashSet">${:import(java.util.HashSet)}new HashSet&lt;&gt;();</template>
+	<template autoinsert="true" context="java" deleted="false" description="init (hash) map" enabled="true" name="nhm">${:import(java.util.HashMap)}new HashMap&lt;&gt;();</template>
+	<template autoinsert="true" context="java" deleted="false" description="init (hash) map" enabled="true" name="newHashMap">${:import(java.util.HashMap)}new HashMap&lt;&gt;();</template>
+	<template autoinsert="true" context="java" deleted="false" description="create a list" enabled="true" name="al">${:importStatic(java.util.Arrays.asList)}asList(${values});</template>
+	<template autoinsert="true" context="java" deleted="false" description="create a list" enabled="true" name="list">${:importStatic(java.util.Arrays.asList)}asList(${values});</template>
+	<template autoinsert="true" context="java" deleted="false" description="create a list" enabled="true" name="asList">${:importStatic(java.util.Arrays.asList)}asList(${values});</template>
 </templates>

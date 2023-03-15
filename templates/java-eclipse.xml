@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><templates>
+	<template autoinsert="true" context="postfix" deleted="false" description="introduce variable" enabled="true" name="var">${field:newType(inner_expression)} ${var:newName(inner_expression)} = ${inner_expression};</template>
+	<template autoinsert="true" context="postfix" deleted="false" description="introduce field" enabled="true" name="field">${field:newField(i)} = ${i:inner_expression};</template>
+	<template autoinsert="true" context="postfix" deleted="false" description="introduce private constant" enabled="true" name="ci">${n:newField(i, false, true, true, true)}${i:inner_expression(novalue)}</template>
+	<template autoinsert="true" context="postfix" deleted="false" description="introduce private constant" enabled="true" name="constpriv">${n:newField(i, false, true, true, true)}${i:inner_expression(novalue)}</template>
+	<template autoinsert="true" context="postfix" deleted="false" description="introduce private constant" enabled="true" name="cu">${n:newField(i, true, true, true, true)}${i:inner_expression(novalue)}</template>
+	<template autoinsert="true" context="postfix" deleted="false" description="introduce private constant" enabled="true" name="constpub">${n:newField(i, true, true, true, true)}${i:inner_expression(novalue)}</template>
+</templates>

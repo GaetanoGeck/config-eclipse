@@ -1,40 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><templates>
-	<template autoinsert="true" context="java-members" deleted="false" description="new test method" enabled="true" name="ut">${:import(org.junit.jupiter.api.Test)}@Test
-	void name() {
-		${cursor}
-	}</template>
-	<template autoinsert="true" context="java-members" deleted="false" description="new test method" enabled="true" name="testMethod">${:import(org.junit.jupiter.api.Test)}@Test
-	void name() {
-		${cursor}
-	}</template>
-	<template autoinsert="true" context="java-members" deleted="false" description="new parameterized test method with values" enabled="true" name="ptv">${:import(org.junit.jupiter.params.ParameterizedTest,org.junit.jupiter.params.provider.ValueSource)}@ParameterizedTest
-	@ValueSource(${valueType} = {${values}})
-	void ${testName}(${paramType} param) {
-		${cursor}
-	}</template>
-	<template autoinsert="true" context="java-members" deleted="false" description="new parameterized test method with values" enabled="true" name="paramValues">${:import(org.junit.jupiter.params.ParameterizedTest,org.junit.jupiter.params.provider.ValueSource)}@ParameterizedTest
-	@ValueSource(${valueType} = {${values}})
-	void ${testName}(${paramType} param) {
-		${cursor}
-	}</template>
-	<template autoinsert="true" context="java-members" deleted="false" description="new parameterized test method with string values" enabled="true" name="ptvs">${:import(org.junit.jupiter.params.ParameterizedTest,org.junit.jupiter.params.provider.ValueSource)}@ParameterizedTest
-	@ValueSource(strings = {${values}})
-	void ${testName}(String param) {
-		${cursor}
-	}</template>
-	<template autoinsert="true" context="java-members" deleted="false" description="new parameterized test method with string values" enabled="true" name="paramStringValues">${:import(org.junit.jupiter.params.ParameterizedTest,org.junit.jupiter.params.provider.ValueSource)}@ParameterizedTest
-	@ValueSource(strings = {${values}})
-	void ${testName}(String param) {
-		${cursor}
-	}</template>
-	<template autoinsert="true" context="java-members" deleted="false" description="new parameterized test method with int values" enabled="true" name="ptvi">${:import(org.junit.jupiter.params.ParameterizedTest,org.junit.jupiter.params.provider.ValueSource)}@ParameterizedTest
-	@ValueSource(ints = {${values}})
-	void ${testName}(int param) {
-		${cursor}
-	}</template>
-	<template autoinsert="true" context="java-members" deleted="false" description="new parameterized test method with int values" enabled="true" name="paramIntValues">${:import(org.junit.jupiter.params.ParameterizedTest,org.junit.jupiter.params.provider.ValueSource)}@ParameterizedTest
-	@ValueSource(ints = {${values}})
-	void ${testName}(int param) {
-		${cursor}
-	}</template>
+	<template autoinsert="true" context="java" deleted="false" description="nested test" enabled="true" name="nested">${:import(org.junit.jupiter.api.Nested)}@Nested
+class ${NestedTestName} {
+
+	${cursor}
+
+}</template>
+	<template autoinsert="true" context="java" deleted="false" description="test" enabled="true" name="test">${:import(org.junit.jupiter.api.Test)}@Test${cursor}</template>
+	<template autoinsert="true" context="java" deleted="false" description="test method" enabled="true" name="tm">${:import(org.junit.jupiter.api.Test)}@Test
+void ${TestName}() {
+	${cursor}
+}</template>
+	<template autoinsert="true" context="java" deleted="false" description="parameterized test" enabled="true" name="pt">${:import(org.junit.jupiter.params.ParameterizedTest)}@ParameterizedTest${cursor}</template>
+	<template autoinsert="true" context="java" deleted="false" description="parameterized test method" enabled="true" name="ptm">${:import(org.junit.jupiter.params.ParameterizedTest)}@ParameterizedTest
+${Parameters}
+void ${TestName}(${Arguments}) {
+	${cursor}
+}</template>
+	<template autoinsert="true" context="java" deleted="false" description="CSV-source for a parameterized test" enabled="true" name="pcsv">${:import(org.junit.jupiter.params.provider.CsvSource)}@CsvSource({ //
+	${value}, //${cursor}
+})</template>
+	<template autoinsert="true" context="java" deleted="false" description="CSV-source for a parameterized test" enabled="true" name="csvSource">${:import(org.junit.jupiter.params.provider.CsvSource)}@CsvSource({ //
+	${value}, //${cursor}
+})</template>
+	<template autoinsert="true" context="java" deleted="false" description="value-source for a parameterized test" enabled="true" name="pval">${:import(org.junit.jupiter.params.provider.ValueSource)}@ValueSource(${valueType} = {${values}})</template>
+	<template autoinsert="true" context="java" deleted="false" description="value-source for a parameterized test" enabled="true" name="valueSource">${:import(org.junit.jupiter.params.provider.ValueSource)}@ValueSource(${valueType} = {${values}})</template>
 </templates>

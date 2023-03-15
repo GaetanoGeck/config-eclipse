@@ -2,57 +2,102 @@
 context = "postfix"
 
 [[templates]]
-name = "at"
+name = "at, assertThat"
 description = "assert that ..."
 pattern = """
 ${:importStatic(org.assertj.core.api.Assertions.assertThat)}\
-assertThat(${inner_expression}).${cursor}"""
+assertThat(${inner_expression})."""
 
 [[templates]]
-name = "ate, empty"
+name = "xat"
+context = "java-statements"
+description = "assert that ..."
+pattern = """
+${:importStatic(org.assertj.core.api.Assertions.assertThat)}\
+assertThat(${Actual})."""
+
+[[templates]]
+name = "isnu, isNull"
+description = "assert null"
+pattern = """
+${:importStatic(org.assertj.core.api.Assertions.assertThat)}\
+assertThat(${inner_expression}).isNull();"""
+
+[[templates]]
+name = "isnnu, isNotNull"
+description = "assert not null"
+pattern = """
+${:importStatic(org.assertj.core.api.Assertions.assertThat)}\
+assertThat(${inner_expression}).isNotNull();"""
+
+[[templates]]
+name = "ise, isEmpty"
 description = "assert empty"
 pattern = """
 ${:importStatic(org.assertj.core.api.Assertions.assertThat)}\
-assertThat(${inner_expression}).isEmpty();${cursor}"""
+assertThat(${inner_expression}).isEmpty();"""
 
 [[templates]]
-name = "atne, notEmpty"
+name = "isne, isNotEmpty"
 description = "assert not empty"
 pattern = """
 ${:importStatic(org.assertj.core.api.Assertions.assertThat)}\
-assertThat(${inner_expression}).isNotEmpty();${cursor}"""
+assertThat(${inner_expression}).isNotEmpty();"""
 
 [[templates]]
-name = "ats, size"
+name = "iseq, isEqual"
+description = "assert equal"
+pattern = """
+${:importStatic(org.assertj.core.api.Assertions.assertThat)}\
+assertThat(${inner_expression}).isEqualTo(${expValue});"""
+
+[[templates]]
+name = "isneq, isNotEqual"
+description = "assert not equal"
+pattern = """
+${:importStatic(org.assertj.core.api.Assertions.assertThat)}\
+assertThat(${inner_expression}).isNotEqualTo(${expValue});"""
+
+[[templates]]
+name = "hasSize"
 description = "assert size"
 pattern = """
 ${:importStatic(org.assertj.core.api.Assertions.assertThat)}\
-assertThat(${inner_expression}).hasSize(${expSize})${cursor}"""
+assertThat(${inner_expression}).hasSize(${expSize})"""
 
 [[templates]]
-name = "atc, contains"
+name = "contains"
 description = "assert contains"
 pattern = """
 ${:importStatic(org.assertj.core.api.Assertions.assertThat)}\
-assertThat(${inner_expression}).contains(${expElements})${cursor}"""
+assertThat(${inner_expression}).contains(${expElements})"""
 
 [[templates]]
-name = "atce, containsExactly"
+name = "containsExactly"
 description = "assert contains exactly"
 pattern = """
 ${:importStatic(org.assertj.core.api.Assertions.assertThat)}\
-assertThat(${inner_expression}).containsExactly(${expElements})${cursor}"""
+assertThat(${inner_expression}).containsExactly(${expElements})"""
 
 [[templates]]
-name = "tc, ThrowingCallable"
+name = "tc"
 description = "throwing callable"
 pattern = """
 ${:import(org.assertj.core.api.ThrowableAssert.ThrowingCallable)}\
 ThrowingCallable when = () -> ${inner_expression};"""
 
 [[templates]]
-name = "ae, thrownBy"
+name = "xtc, ThrowingCallable"
+context = "java-statements"
+description = "throwing callable"
+pattern = """
+${:import(org.assertj.core.api.ThrowableAssert.ThrowingCallable)}\
+ThrowingCallable when = () -> """
+
+[[templates]]
+name = "assertThrows"
 description = "assert exception"
+context = "java-statements"
 pattern = """
 ${:importStatic(org.assertj.core.api.Assertions.assertThatThrownBy)}\
-assertThatThrownBy(${inner_expression})${cursor}"""
+assertThatThrownBy(when).isInstanceOf(${expException}.class)"""

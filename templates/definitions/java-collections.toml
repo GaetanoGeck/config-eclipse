@@ -1,22 +1,31 @@
+[config]
+context = "java"
+
 [[templates]]
-name = "il, initList"
+name = "nal, newArrayList"
 description = "init (array) list"
 pattern = """
 ${:import(java.util.ArrayList)}\
-new ArrayList<>(${params});"""
+new ArrayList<>();"""
 
 [[templates]]
-name = "is, initSet"
+name = "nhs, newHashSet"
 description = "init (hash) set"
 pattern = """
 ${:import(java.util.HashSet)}\
-new HashSet<>(${params});"""
+new HashSet<>();"""
 
 
 [[templates]]
-name = "im, initMap"
+name = "nhm, newHashMap"
 description = "init (hash) map"
 pattern = """
 ${:import(java.util.HashMap)}\
-new HashMap<>(${params});"""
+new HashMap<>();"""
 
+[[templates]]
+name = "al, list, asList"
+description = "create a list"
+pattern = """
+${:importStatic(java.util.Arrays.asList)}\
+asList(${values});"""

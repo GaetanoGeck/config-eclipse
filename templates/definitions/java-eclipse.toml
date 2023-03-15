@@ -1,0 +1,27 @@
+[[templates]]
+name = "var"
+description = "introduce variable"
+context = "postfix"
+pattern = """
+${field:newType(inner_expression)} ${var:newName(inner_expression)} = ${inner_expression};"""
+
+[[templates]]
+name = "field"
+description = "introduce field"
+context = "postfix"
+pattern = """
+${field:newField(i)} = ${i:inner_expression};"""
+
+[[templates]]
+name = "ci, constpriv"
+description = "introduce private constant"
+context = "postfix"
+pattern = """
+${n:newField(i, false, true, true, true)}${i:inner_expression(novalue)}"""
+
+[[templates]]
+name = "cu, constpub"
+description = "introduce private constant"
+context = "postfix"
+pattern = """
+${n:newField(i, true, true, true, true)}${i:inner_expression(novalue)}"""

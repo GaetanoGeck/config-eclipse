@@ -5,3 +5,112 @@ pattern = """
 ${return_type} ${name} = new ${return_type}();
 ${cursor}
 return ${name};"""
+
+[[templates]]
+name = "ret"
+context = "postfix"
+description = "return expression"
+pattern = """
+return ${inner_expression};"""
+
+[[templates]]
+name = "fmt, format"
+description = "format a string"
+pattern = """
+String ${name} = String.format(${text}, ${obj});"""
+
+[[templates]]
+name = "mu"
+context = "java"
+description = "public method"
+pattern = """
+public ${void} ${MethodName}(${}) {
+	${cursor}
+}
+"""
+
+[[templates]]
+name = "ma"
+context = "java"
+description = "package method"
+pattern = """
+${void} ${MethodName}(${}) {
+	${cursor}
+}
+"""
+
+[[templates]]
+name = "mo"
+context = "java"
+description = "protected method"
+pattern = """
+protected ${void} ${MethodName}(${}) {
+	${cursor}
+}
+"""
+
+[[templates]]
+name = "mi"
+context = "java"
+description = "private method"
+pattern = """
+private ${void} ${MethodName}(${}) {
+	${cursor}
+}
+"""
+
+[[templates]]
+name = "sfi"
+context = "java"
+description = "private static final field"
+pattern = """
+private static final ${FieldType} ${FieldName}${cursor};
+"""
+
+[[templates]]
+name = "sfu"
+context = "java"
+description = "public static final field"
+pattern = """
+public static final ${FieldType} ${FieldName}${cursor};
+"""
+
+[[templates]]
+name = "iser"
+context = "java"
+description = "Serializable"
+pattern = """
+${:import(java.io.Serializable)}\
+Serializable
+"""
+
+[[templates]]
+name = "idser"
+context = "java"
+description = "Serializable ID"
+pattern = """
+private static final long serialVersionUID = 1L;"""
+
+[[templates]]
+name = "clone"
+context = "java-statements"
+description = "clone via SerializationUtils"
+pattern = """
+${:import(org.apache.commons.lang3.SerializationUtils)}\
+SerializationUtils.clone(${obj:var});"""
+
+[[templates]]
+name = "serialize"
+context = "java-statements"
+description = "serialize via SerializationUtils"
+pattern = """
+${:import(org.apache.commons.lang3.SerializationUtils)}\
+SerializationUtils.serialize(${obj:var});"""
+
+[[templates]]
+name = "deserialize"
+context = "java-statements"
+description = "deserialize via SerializationUtils"
+pattern = """
+${:import(org.apache.commons.lang3.SerializationUtils)}\
+SerializationUtils.deserialize(${obj:var});"""

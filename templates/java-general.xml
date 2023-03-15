@@ -5,4 +5,33 @@ return ${name};</template>
 	<template autoinsert="true" context="java-statements" deleted="false" description="create and return DTO" enabled="true" name="createDto">${return_type} ${name} = new ${return_type}();
 ${cursor}
 return ${name};</template>
+	<template autoinsert="true" context="postfix" deleted="false" description="return expression" enabled="true" name="ret">return ${inner_expression};</template>
+	<template autoinsert="true" context="java-statements" deleted="false" description="format a string" enabled="true" name="fmt">String ${name} = String.format(${text}, ${obj});</template>
+	<template autoinsert="true" context="java-statements" deleted="false" description="format a string" enabled="true" name="format">String ${name} = String.format(${text}, ${obj});</template>
+	<template autoinsert="true" context="java" deleted="false" description="public method" enabled="true" name="mu">public ${void} ${MethodName}(${}) {
+	${cursor}
+}
+</template>
+	<template autoinsert="true" context="java" deleted="false" description="package method" enabled="true" name="ma">${void} ${MethodName}(${}) {
+	${cursor}
+}
+</template>
+	<template autoinsert="true" context="java" deleted="false" description="protected method" enabled="true" name="mo">protected ${void} ${MethodName}(${}) {
+	${cursor}
+}
+</template>
+	<template autoinsert="true" context="java" deleted="false" description="private method" enabled="true" name="mi">private ${void} ${MethodName}(${}) {
+	${cursor}
+}
+</template>
+	<template autoinsert="true" context="java" deleted="false" description="private static final field" enabled="true" name="sfi">private static final ${FieldType} ${FieldName}${cursor};
+</template>
+	<template autoinsert="true" context="java" deleted="false" description="public static final field" enabled="true" name="sfu">public static final ${FieldType} ${FieldName}${cursor};
+</template>
+	<template autoinsert="true" context="java" deleted="false" description="Serializable" enabled="true" name="iser">${:import(java.io.Serializable)}Serializable
+</template>
+	<template autoinsert="true" context="java" deleted="false" description="Serializable ID" enabled="true" name="idser">private static final long serialVersionUID = 1L;</template>
+	<template autoinsert="true" context="java-statements" deleted="false" description="clone via SerializationUtils" enabled="true" name="clone">${:import(org.apache.commons.lang3.SerializationUtils)}SerializationUtils.clone(${obj:var});</template>
+	<template autoinsert="true" context="java-statements" deleted="false" description="serialize via SerializationUtils" enabled="true" name="serialize">${:import(org.apache.commons.lang3.SerializationUtils)}SerializationUtils.serialize(${obj:var});</template>
+	<template autoinsert="true" context="java-statements" deleted="false" description="deserialize via SerializationUtils" enabled="true" name="deserialize">${:import(org.apache.commons.lang3.SerializationUtils)}SerializationUtils.deserialize(${obj:var});</template>
 </templates>
