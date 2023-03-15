@@ -57,7 +57,8 @@ def printTemplate(template):
         print(tag, end="")
 
     def printPattern():
-        print(template["pattern"], end="")
+        escapedPattern = escape(template["pattern"])
+        print(escapedPattern, end="")
 
     def printClosingTag():
         print("</template>")
@@ -67,6 +68,10 @@ def printTemplate(template):
         printOpeningTag(name)
         printPattern()
         printClosingTag()
+
+
+def escape(pattern):
+    return pattern.replace("<", "&lt;").replace(">", "&gt;")
 
 
 if __name__ == "__main__":
